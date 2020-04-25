@@ -1,10 +1,11 @@
 class ImportUpdatesJob < ApplicationJob
+  queue_as :default
 
   def perform(*args)
-    reschedule_job
     Provider.where.not(token: [nil, ""]).each do |p|
       p.sync
     end
+    reschedule_job
   end
 
   def reschedule_job
