@@ -8,7 +8,7 @@ class ImportUpdatesJob < ApplicationJob
   end
 
   def reschedule_job
-    self.class.set(wait: 24.hours).perform_later
+    self.class.set(wait: 5.minutes).perform_later
   end
 
 end
