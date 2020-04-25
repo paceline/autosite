@@ -4,12 +4,32 @@
     <title>Autosite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'page_editor', 'data-turbolinks-track': 'reload' if controller.controller_name == 'pages' %>
+    <%= javascript_pack_tag 'provider_editor', 'data-turbolinks-track': 'reload' if controller.controller_name == 'providers' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= image_tag "logo", id: "logo" %>
+    <nav>
+      <%= link_to t('views.site.name'), manage_site_url %>
+      <%= link_to t('views.pages.name'), manage_pages_url %>
+      <%= link_to t('views.providers.name'), manage_providers_url %>
+      <% if user_signed_in? %>
+        <%= link_to t('views.layout.sign_out'), destroy_user_session_url, method: :delete %>
+      <% else %>
+        <%= link_to t('views.layout.sign_in'), new_user_session_url %>
+      <% end %>
+    </nav>
+    <section id="notices">
+      <% if notice %><p class="notice"><%= notice %></p><% end %>
+      <% if alert %><p class="alert"><%= alert %></p><% end %>
+    </section>
+    <section id="main">
+      <%= yield %>
+    </section>
+    <footer>
+      <a href="https://github.com/paceline/autosite">Autosite</a> <%= t('views.layout.footer') %>
+    </footer>
   </body>
 </html>

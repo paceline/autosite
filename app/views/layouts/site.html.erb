@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @site.site_title %></title>
+    <link href="/<%= @site.stylesheet.name %>" media="all" rel="stylesheet" type="text/css" />
+    <%= @site.site_tracker_code.html_safe %>
+  </head>
+  <body>
+    <div id="content">
+      <div id="header">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <% @pages.each do |page| %>
+            <li><a href="/<%= page.name %>"><%= page.title %></a></li>
+          <% end %>
+        </ul>
+        <%= yield %>
+    </div>
+    <%= @site.site_footer.html_safe %>
+  </body>
+</html>

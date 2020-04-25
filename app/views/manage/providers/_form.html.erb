@@ -1,0 +1,29 @@
+<%= form_with model: @provider, url: (@provider.new_record? ? manage_providers_url : manage_provider_url(@provider.id)) do |f| %>
+  <% unless @provider.new_record? %>
+    <div class="fieldset">
+      <% if @provider.authorized? %>
+        <%= t('views.providers.edit.authorized', provider: @provider.class.to_s).html_safe %>
+      <% else %>
+        <%= t('views.providers.edit.unauthorized', provider: @provider.class.to_s, key: @provider.class.to_s.downcase).html_safe %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="fieldset">
+    <%= f.label :type %>
+    <%= f.select :type, ['Github','Twitter'], {}, disabled: !@provider.new_record? %>
+  </div>
+  <div class="fieldset">
+    <%= f.label :api_key %>
+    <%= f.text_field :api_key, size: 25 %>
+  </div>
+  <div class="fieldset">
+    <%= f.label :api_secret %>
+    <%= f.text_field :api_secret, size: 50 %>
+  </div>
+  <div class="fieldset">
+    <%= f.check_box :repost %>
+    <%= f.label :repost %>
+  </div>
+  <%= f.submit t('views.providers.new.submit') %>
+<% end %>
+<%= button_to t('views.providers.edit.delete'), manage_page_url(@provider), method: :delete, data: { confirm: "Are you sure you want to do that?" }, class: 'danger' unless @provider.new_record? %>

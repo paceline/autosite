@@ -1,33 +1,56 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        encrypted_password: "Password/Token"
+        provider: "Provider"
+        page_id: "Stylesheet"
+        site_title: "Title"
+        site_footer: "Footer"
+        site_tracker_code: "Tracker code"
+  views:
+    layout:
+      footer: "is a simple framework/tool for running a personal website with largely auto-generate content (hence the name)"
+    site:
+      name: "Site"
+      title: "Your site"
+      submit: "Save"
+      update_message: "Site has been updated successfully."
+    pages:
+      name: "Pages"
+      new:
+        title: "Add a new page"
+        submit: "Save"
+      edit:
+        delete: "Delete"
+      create:
+        notice: "Page was successfully created."
+      update:
+        notice: "Page was successfully updated."
+      delete:
+        notice: "Page was successfully deleted."
+    providers:
+      name: "Providers"
+      new:
+        title: "Add a provider"
+        submit: "Save"
+      edit:
+        delete: "Delete"
+        authorized: "This <b>%{provider}</b> account is authorized and ready to be synced into your feed."
+        unauthorized: "This <b>%{provider}</b> account in not yet authorized and thus inactive. You can <a href=\"/auth/%{key}\">authorize</a> it now."
+      create:
+        notice: "Provider was successfully created."
+      update:
+        notice: "Provider was successfully updated."
+        authorized: "Provider was successfully authorized."
+      delete:
+        notice: "Provider was successfully deleted."
+    users:
+      sign_in: "Log in"
+      sign_in_msg: "Please fill in your login details below to continue."
+      sign_up: "Sign up"
+      sign_up_msg: "Please quickly fill in the form below to get started with your own site."

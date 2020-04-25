@@ -13,3 +13,144 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body, input, textarea, select {
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+img#logo {
+  float: left;
+  margin: .75em 0 1.5em 1em;
+}
+
+section#notices {
+  margin: 0 auto;
+  width: 400px;
+}
+section#notices p {
+  color: #fff;
+  margin: 0;
+  padding: .5em;
+  text-align: center;
+}
+section#notices p.notice {
+  background-color: #551A8B;
+}
+section#notices p.alert {
+  background-color: #FF0000;
+}
+
+nav {
+  float: right;
+  margin: 2em 1.5em 0 0;
+}
+nav a {
+  color: #0000FF;
+  margin-right: 1.5em;
+  padding: .5em .75em .5em .75em;
+  text-decoration: none;
+}
+nav a:hover {
+  background-color: #0000FF;
+  color: #FFF;
+}
+
+section#main {
+  margin: 2em 6em 2em 6em;
+}
+section#main:after, nav:after, #notices:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fieldset {
+  margin: 0 0 1.5em 0;
+}
+.fieldset label {
+  display: block;
+  padding-bottom: .5em;
+}
+input, textarea, select {
+  border: 1px #ccc solid;
+  color: #888;
+  font-size: 1em;
+  padding: .5em .75em .5em .75em;
+}
+input[type="checkbox"] {
+  float: left;
+  margin: .25em .5em 0 0;
+}
+input[type="submit"] {
+  background-color: #551A8B;
+  border: none;
+  margin: 0;
+  padding: .5em .75em .5em .75em;
+  color: #fff;
+  font-size: 1em;
+}
+
+input[type="submit"].danger {
+  background-color: #FF0000;
+  margin: 0 0 0 1.5em;
+}
+
+.handle {
+  cursor: move;
+}
+
+.popup {
+  background-color: #eee;
+  margin: 0 auto;
+  padding: 1em;
+  width: 500px;
+}
+.popup h2 {
+  margin: 0 0 .5em 0;
+  padding: 0;
+}
+.popup form {
+  margin-top: 2em;
+}
+
+footer {
+  color: #888;
+  font-size: .9em;
+  margin: 5em 0 2em 0;
+  text-align: center;
+}
+footer a {
+  color: #888;
+}
+
+
+.list {
+  background-color: #eee;
+  margin: 0 5em 0 0;
+  padding: 1em;
+  width: 250px;
+}
+.list h1 {
+  margin: 0 0 .5em 0;
+  padding: 0;
+}
+.list ul {
+  margin: 1.5em 0 0 0;
+  padding: 0;
+}
+.list ul li {
+  background-color: #fff;
+  list-style-type: none;
+  margin: 0 0 .5em 0;
+  padding: 1em 1em 1em .5em;
+}
+
+.list, .edit {
+  float: left;
+}
+.edit form input[type="submit"] {
+  float: left;
+}

@@ -1,0 +1,20 @@
+<h1><%= t('views.site.title') %></h1>
+<%= form_with model: @user, url: manage_site_url, method: :put do |f| %>
+  <div class="fieldset">
+    <%= f.label :site_title %>
+    <%= f.text_field :site_title, size: 50 %>
+  </div>
+  <div class="fieldset">
+    <%= f.label :page_id %>
+    <%= f.select :page_id, Page.where(kind: 'Stylesheet').collect {|p| [ p.name, p.id ] }, { include_blank: true } %>
+  </div>
+  <div class="fieldset">
+    <%= f.label :site_footer %>
+    <%= f.text_area :site_footer, size: "75x5" %>
+  </div>
+  <div class="fieldset">
+    <%= f.label :site_tracker_code %>
+    <%= f.text_area :site_tracker_code, size: "75x5" %>
+  </div>
+  <%= f.submit t('views.site.submit') %>
+<% end %>

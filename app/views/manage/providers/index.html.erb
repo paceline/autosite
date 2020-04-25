@@ -1,0 +1,15 @@
+<div id="provider-list" class="list">
+  <h1><%= t('views.providers.name') %></h1>
+  <ul>
+    <% @providers.each do |provider| %>
+      <li>
+        <%= link_to provider.class.to_s, edit_manage_provider_url(provider), class: "provider-edit-link", remote: true %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+  <%= link_to t('views.providers.new.title'), new_manage_provider_url %>
+</div>
+<div id="provider-edit" class="edit">
+  <%= render partial: 'form' %>
+</div>

@@ -1,0 +1,17 @@
+  <%= image_tag "home" %>
+</div>
+<div id="feed">
+  <% @records.each_with_index do |u,i| %>
+    <div id="update_<%= i %>">
+      <h1>
+		    <a href="<%= u.link %>" class="user_link"><%= u.provider.username %></a>
+		    <a href="<%= u.link %>"><%= u.heading %></a>
+      </h1>
+      <% if u.content %><p><a href="<%= u.link %>"><%= u.content.truncate(150) %></a></p><% end %>
+      <p class="link">
+        <%= time_ago_in_words(u.posted_on) %> ago on <a href="http://<%= u.provider.class.to_s %>.com"><%= u.provider.class.to_s.capitalize %></a>
+      </p>
+    </div>
+  <% end %>
+</div>
+<%== pagy_nav(@pagy) %>
