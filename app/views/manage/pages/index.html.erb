@@ -3,7 +3,7 @@
   <ul>
     <% @pages.each do |page| %>
       <li id="page_<%= page.id %>">
-        <%= image_tag 'sort', class: 'handle' %>
+        <%= image_tag 'sort.png', class: 'handle' %>
         <%= link_to "/#{page.name}", edit_manage_page_url(page), class: "page-edit-link", remote: true %>
       </li>
     <% end %>
