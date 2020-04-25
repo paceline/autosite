@@ -20,14 +20,6 @@ class SiteController < ApplicationController
     end
   end
 
-  # GET /site/update
-  def update
-    Provider.where.not(token: [nil, ""]).each do |p|
-      p.sync
-    end
-    render json: { status: 200, message: "Update successfully executed" }
-  end
-
   private
 
     def load_site

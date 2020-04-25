@@ -7,7 +7,6 @@ class Github < Provider
       req["Authorization"] = "Bearer #{self.token}"
       response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') { |http| http.request(req) }
       feed = JSON.parse(response.body)
-      raise feed.first.inspect
       feed.each do |upd|
         if Update.where(originalid: upd['id'], provider_id: self.id).count == 0
           status = self.updates.build({ originalid: upd['id'], link: "https://github.com/#{upd['repo']['name']}", posted_on: upd['created_at'] })

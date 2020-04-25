@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   get '/manage', to: 'manage/sites#show'
 
   # Home
-  get '/site/update', to: 'site#update'
   get '/:slug', to: 'site#show'
   root 'site#home'
 
